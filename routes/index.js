@@ -8,7 +8,10 @@ router.get('/', (req, res) => {
   // const devon = { name: 'devon', hair: 'black', fresh: true };
   // res.send(devon);
   // res.json(req.query);
-  res.render('hello');
+  res.render('hello', {
+    name: 'Devon',
+    dog: req.query.dog,
+  });
 });
 
 router.get('/reverse/:name', (req, res) => {
