@@ -50,6 +50,11 @@ html
       block content
         p This is the default.
 
+
     block scripts
       script(src=`https://maps.googleapis.com/maps/api/js?key=${process.env.MAP_KEY}&libraries=places`)
       script(src="/dist/App.bundle.js")
+
+    footer  
+      block footer
+        p © Devon Marantz Productions
