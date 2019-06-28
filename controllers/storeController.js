@@ -33,5 +33,10 @@ exports.createStore = async (req, res) => {
   const store = await new Store(req.body).save();
   await store.save();
   req.flash('success', `Successfully created ${store.name}!  Good job dude. 🤙`);
-  res.redirect(`/store/${store.slug}`);
+  res.redirect(`/stores/${store.slug}`);
+};
+
+exports.getStores = (req, res) => {
+  // 1. Query the database for a list of all stores
+  res.render('stores', { title: 'Stores' });
 };
