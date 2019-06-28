@@ -13,13 +13,6 @@ exports.myMiddleware = (req, res, next) => {
 
 exports.homePage = (req, res) => {
   console.log(req.name);
-  req.flash('error', `Suc Good job dude. 🤙`);
-  req.flash('error', `🍵`);
-  req.flash('warning', `🙏`);
-  req.flash('info', `Suc Good job dude. 🤙`);
-  req.flash('error', `🍊🏄‍♂️`);
-  req.flash('success', `Suc Good job dude. 🤙`);
-
   res.render('index');
   // console.log('Yooooo');
   // const devon = { name: 'devon', hair: 'black', fresh: true };
@@ -37,8 +30,8 @@ exports.addStore = (req, res) => {
 };
 
 exports.createStore = async (req, res) => {
-  const store = new Store(req.body);
+  const store = await new Store(req.body).save();
   await store.save();
-  req.flash('success', `Successfully create ${store.name}!  Good job dude. 🤙`);
-  res.redirect('/');
+  req.flash('success', `Successfully created ${store.name}!  Good job dude. 🤙`);
+  res.redirect(`/store/${store.slug}`);
 };
