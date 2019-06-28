@@ -20,3 +20,7 @@ exports.homePage = (req, res) => {
   //   title: `I'm hungry`,
   // });
 };
+
+exports.addStore = (req, res) => {
+  res.render('editStore', { title: '🤙Add Store' });
+};
