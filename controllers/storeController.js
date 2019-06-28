@@ -1,3 +1,7 @@
+const mongoose = require('mongoose');
+
+const Store = mongoose.model('Store');
+
 exports.myMiddleware = (req, res, next) => {
   req.name = 'Devon';
   res.cookie('name', 'Devon likes food', { maxAge: 90000000 });
@@ -26,5 +30,6 @@ exports.addStore = (req, res) => {
 };
 
 exports.createStore = (req, res) => {
-  res.json(req.body);
+  const store = new Store(req.body);
+  store.save();
 };
