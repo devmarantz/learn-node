@@ -4,6 +4,7 @@ exports.myMiddleware = (req, res, next) => {
 };
 
 exports.homePage = (req, res) => {
+  console.log(req.name);
   res.render('index');
   // console.log('Yooooo');
   // const devon = { name: 'devon', hair: 'black', fresh: true };
