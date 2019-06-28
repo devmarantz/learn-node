@@ -1,5 +1,6 @@
 exports.myMiddleware = (req, res, next) => {
   req.name = 'Devon';
+  res.cookie('name', 'Devon likes food', { maxAge: 90000000 });
   next();
 };
 
