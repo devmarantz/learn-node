@@ -36,6 +36,7 @@ const storeSchema = new mongoose.Schema({
       default: 'You must require an address!',
     },
   },
+  photo: String,
 });
 
 storeSchema.pre('save', function(next) {
